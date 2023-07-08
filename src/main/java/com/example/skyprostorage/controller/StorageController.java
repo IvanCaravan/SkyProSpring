@@ -19,8 +19,8 @@ public class StorageController {
     }
 
     @RequestMapping("/order/add")
-    public void add(@RequestParam Integer Id) {
-        storageService.addItem(new Item(Id));
+    public String add(@RequestParam Integer Id) {
+        return storageService.addItem(new Item(Id));
     }
 
     @RequestMapping("/order/get")

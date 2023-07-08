@@ -18,9 +18,9 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public void addItem(Item item) {
+    public String addItem(Item item) {
         items.add(item);
-        System.out.println("Добавлено");
+        return "Товар " + item + " Добавлен";
     }
 
     @Override

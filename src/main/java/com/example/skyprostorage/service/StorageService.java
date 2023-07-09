@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface StorageService {
 
-    String addItem(Item item);
 
-    List<Item> getItems();
+    List<Integer> addItem(Integer... item);
+
+    List<Integer> getItems();
 }

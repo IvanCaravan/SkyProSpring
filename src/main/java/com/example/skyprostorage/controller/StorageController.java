@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -19,12 +18,13 @@ public class StorageController {
     }
 
     @RequestMapping("/order/add")
-    public String add(@RequestParam Integer Id) {
-        return storageService.addItem(new Item(Id));
+    public List<Integer> add(@RequestParam Integer... item) {
+
+        return storageService.addItem(item);
     }
 
     @RequestMapping("/order/get")
-    public Collection<Item> get() {
+    public List<Integer> get() {
         return storageService.getItems();
     }
 

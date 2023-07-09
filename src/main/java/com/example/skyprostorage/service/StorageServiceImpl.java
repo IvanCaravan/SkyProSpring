@@ -1,6 +1,5 @@
 package com.example.skyprostorage.service;
 
-import com.example.skyprostorage.Item.Item;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -11,20 +10,19 @@ import java.util.List;
 @Service
 @SessionScope
 public class StorageServiceImpl implements StorageService {
-    private final List<Item> items;
+    private final List<Integer> items = new ArrayList<>();
 
-    public StorageServiceImpl() {
-        this.items = new ArrayList<>();
+
+    @Override
+    public List<Integer> addItem(Integer... item) {
+
+        items.addAll(List.of(item));
+
+        return List.of(item);
     }
 
     @Override
-    public String addItem(Item item) {
-        items.add(item);
-        return "Товар " + item + " Добавлен";
-    }
-
-    @Override
-    public List<Item> getItems() {
+    public List<Integer> getItems() {
         return Collections.unmodifiableList(items);
     }
 
